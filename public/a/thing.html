@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powerschool</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the body and font */
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f4f8; /* Light background */
+            margin: 0;
+            padding: 1rem;
+            overflow: auto; /* Allow scrolling if content overflows */
+        }
+        /* Style for the images generated */
+        .char-image {
+            display: inline-block; /* Allows images to sit side-by-side */
+            margin: 0 4px; /* Increased spacing between images */
+            vertical-align: middle; /* Align images nicely with text if any */
+            width: 40px; /* Increased width for character images */
+            height: 40px; /* Increased height for character images */
+            object-fit: contain; /* Ensures the image content fits without cropping */
+            border-radius: 6px; /* Slightly more rounded corners for images */
+            background-color: #e2e8f0; /* Background for images */
+        }
+        /* Style for the blank space box */
+        .blank-space-box {
+            display: inline-block;
+            margin: 0 4px; /* Increased spacing */
+            vertical-align: middle;
+            width: 40px; /* Same width as char-image */
+            height: 40px; /* Same height as char-image */
+            border-radius: 6px;
+            background-color: #e2e8f0; /* Same background as char-image, or transparent if preferred */
+        }
+        /* Styling for the container holding the images */
+        #targetParagraph {
+            line-height: 1.2; /* Adjust line height for better vertical spacing */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg max-w-full w-fit text-center flex flex-wrap justify-center items-center">
+        <!-- The paragraph element whose text content will be replaced by images -->
+        <p id="targetParagraph" class="text-xl text-gray-700 inline-flex flex-wrap justify-center items-center">
+            ok if you clicked here your wondering why the f*** is this thing so slow well its because we here at acid created somthing crazy, never heard of (probally).
+            We use a double proxy so although it takes sometime to load its almost certainly unblocked although if you dont want these slow speeds you can go to your current url and add a /a but it will probally get blocked (an example of this is example.com/a)
+        </p>
+    </div>
+
+    <script>
+        // Function to replace text characters with images for a given element
+        function replaceTextWithImages(elementId) {
+            // Get the element by its ID
+            const element = document.getElementById(elementId);
+            if (!element) {
+                console.error(`Element with ID "${elementId}" not found.`);
+                return;
+            }
+
+            // Get the current text content of the element
+            const textContent = element.textContent;
+
+            // Clear the existing content of the element
+            element.innerHTML = '';
+
+            // Iterate over each character in the text content
+            for (let i = 0; i < textContent.length; i++) {
+                const char = textContent[i];
+
+                if (char === ' ') {
+                    // If the character is a space, create a blank div
+                    const spaceBox = document.createElement('div');
+                    spaceBox.classList.add('blank-space-box'); // Apply styling for blank box
+                    element.appendChild(spaceBox);
+                } else {
+                    // If it's not a space, create an image element as before
+                    const img = document.createElement('img');
+
+                    // Set the source of the image to a placeholder service (placehold.co)
+                    // This service generates an image with the specified text, width, height, and colors.
+                    // We use a light grey background (eee) and dark text (333).
+                    // The char.toUpperCase() is used to ensure visibility if the character is lowercase
+                    // and the placeholder service might render it too small.
+                    img.src = `https://placehold.co/40x40/eee/333?text=${char.toUpperCase()}`; // Updated size
+
+                    // Add a class for basic styling (defined in the <style> block)
+                    img.classList.add('char-image');
+
+                    // Add an alt attribute for accessibility, describing the character
+                    img.alt = `Image of character: ${char}`;
+
+                    // Append the created image element to the element
+                    element.appendChild(img);
+                }
+            }
+        }
+
+        // Call the function on window load to convert the initial text automatically
+        window.onload = () => {
+            replaceTextWithImages('targetParagraph'); // Convert paragraph
+        };
+    </script>
+</body>
+</html>
