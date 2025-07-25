@@ -1227,7 +1227,7 @@
                 </div>
                 <div class="browser-content">
                     <div class="tab-content active" id="tab1-content">
-                        <iframe src="static/index.html" class="browser-frame" id="tab1-frame"></iframe>
+                        <iframe src="a/pro.html" class="browser-frame" id="tab1-frame"></iframe>
                     </div>
                 </div>
             </div>
@@ -1554,7 +1554,7 @@
             tabContent.className = 'tab-content';
             tabContent.id = `tab${tabCounter}-content`;
             tabContent.innerHTML = `
-                <iframe src="/static" class="browser-frame" id="tab${tabCounter}-frame"></iframe>
+                <iframe src="/a/pro.html" class="browser-frame" id="tab${tabCounter}-frame"></iframe>
             `;
             
             tabs.insertBefore(tabElement, newTabButton);
@@ -1591,7 +1591,7 @@
                     if (iframeUrl !== 'about:blank') {
                         addressBar.value = iframeUrl;
                     } else {
-                        addressBar.value = 'proll://new';
+                        addressBar.value = 'acid://new';
                     }
                 } catch (e) {
                     addressBar.value = iframe.src;
