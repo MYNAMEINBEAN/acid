@@ -250,7 +250,8 @@
 
             // Get the current URL and construct the iframe source
             const currentUrl = window.location.href.split('#')[0]; // Remove hash if present
-            const constructedIframeSrc = `${currentUrl}/a/static/embed.html#${currentUrl}/a`;
+            const constructedIframeSrc = `https://acid-mauve.vercel.app/a/#home`;
+            // const constructedIframeSrc = `${currentUrl}/a/static/embed.html#${currentUrl}/a`;
             mainIframe.src = constructedIframeSrc;
 
             // Set a timeout for the minimum 5-second loading duration
