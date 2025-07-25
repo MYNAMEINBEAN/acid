@@ -1,7 +1,7 @@
 /**
  * Distributed with Ultraviolet and compatible with most configurations.
  */
-const stockSW = "/static/uv-sw.js";
+const stockSW = "/a/static/uv-sw.js";
 
 /**
  * List of hostnames that are allowed to run serviceworkers on http:
