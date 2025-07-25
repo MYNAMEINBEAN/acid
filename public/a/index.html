@@ -1554,7 +1554,7 @@
             tabContent.className = 'tab-content';
             tabContent.id = `tab${tabCounter}-content`;
             tabContent.innerHTML = `
-                <iframe src="/a/pro.html" class="browser-frame" id="tab${tabCounter}-frame"></iframe>
+                <iframe src="/pro.html" class="browser-frame" id="tab${tabCounter}-frame"></iframe>
             `;
             
             tabs.insertBefore(tabElement, newTabButton);
@@ -1656,7 +1656,7 @@
             }
             
             if (url === 'acid://new') {
-                iframe.src = '/a/pro.html';
+                iframe.src = '/pro.html';
                 return;
             }
             
