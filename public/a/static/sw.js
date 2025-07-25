@@ -1,5 +1,5 @@
 var cacheName = "TIWcog";
-var filesToCache = ["/js/sw.js"];
+var filesToCache = ["/a/js/sw.js"];
 
 self.addEventListener("install", (e) => {
 	e.waitUntil(
